@@ -12,7 +12,10 @@ const routes = {
             return
         }
         fetchData(query.city).then(data => {
-            res.write(`<h1>${data}</h1`)
+            if (!data)
+                res.write(`<h1>Please provide a supported city</h1`)
+            else 
+                res.write(`<h1>${data}</h1`)
             res.end()
         })
     },
